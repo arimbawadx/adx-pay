@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ asset('lte/dist/img/favicon.ico') }}">
   <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -20,11 +21,11 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  @include('layouts/header')
+  @include('cs/layouts/header')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('layouts/sidebar')
+  @include('cs/layouts/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -66,7 +67,7 @@
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  @include('layouts/footer')
+  @include('cs/layouts/footer')
 </div>
 <!-- ./wrapper -->
 
@@ -91,7 +92,37 @@
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
   $(document).ready( function () {
+    // datatables
     $('#datatables').DataTable();
+    // end datatables
+
+    // delete cs
+    $('.delete_cs').click(function(){
+    var cs_id=$(this).attr('cs-id');
+    var nama_cs=$(this).attr('nama-cs');
+
+      swal({
+      title: "Yakin hapus "+nama_cs+" ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location="/cs/users/data-cs/delete/"+cs_id;
+        swal("Data terhapus", {
+        icon: "success",
+        });
+      } else {
+        swal({
+          title: "Jangan Ragu!",
+          icon: "warning",
+        });
+      }
+    });
+  });
+  // end delete cs
+
 });
 </script>
 
@@ -106,6 +137,8 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('lte/dist/js/demo.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+@include('sweetalert::alert')
 </body>
 </html>

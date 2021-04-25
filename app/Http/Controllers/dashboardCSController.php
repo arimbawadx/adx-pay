@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class dashboardController extends Controller
+class dashboardCSController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,6 +38,7 @@ class dashboardController extends Controller
 
         $contentSaldo=utf8_encode($resultSaldo);
         $resultSaldo2=json_decode($contentSaldo,true);
+        // return $resultSaldo2;
         $saldo = $resultSaldo2['balance'];
 
 
@@ -59,8 +60,8 @@ class dashboardController extends Controller
         $contentHargaPulsa=utf8_encode($resultHargaPulsa);
         $resultHargaPulsa2=json_decode($contentHargaPulsa,true);
         
-        // return $resultHargaPulsa2;
-        return view('pages.dashboard', compact('saldo', 'resultHargaPulsa2'));
+        // return $saldo;
+        return view('cs.pages.dashboard', compact('saldo', 'resultHargaPulsa2'));
     }
 
     /**

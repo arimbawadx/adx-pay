@@ -16,6 +16,7 @@ class CreateCustomerServicesTable extends Migration
         Schema::create('customer_services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('saldo');
             $table->string('username');
             $table->string('password');
             $table->string('phone_number');

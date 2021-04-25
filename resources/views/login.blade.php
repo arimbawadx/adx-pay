@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ asset('lte/dist/img/favicon.ico') }}">
   <title>adx-pay | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -29,7 +30,7 @@
           <input required type="text" class="form-control" name="username" autocomplete="off" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>

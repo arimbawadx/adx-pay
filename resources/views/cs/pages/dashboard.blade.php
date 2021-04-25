@@ -1,4 +1,4 @@
-@extends('layouts/main')
+@extends('cs/layouts/main')
 
 @section('title','adx-pay | Dashboard')
 
