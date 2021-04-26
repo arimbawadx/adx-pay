@@ -15,7 +15,43 @@
             <div class="inner">
               <h3>Rp. {{number_format($saldo)}}</h3>
 
-              <p>Saldo</p>
+              <p>Total Saldo Utama</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-4">
+          <!-- small card -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>-</h3>
+
+              <p>Total Saldo Semua Customer</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-4">
+          <!-- small card -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>-</h3>
+
+              <p>Saldo Customer Services</p>
             </div>
             <div class="icon">
               <i class="fas fa-wallet"></i>
@@ -27,7 +63,8 @@
       </div>
       <!-- ./col -->
     </div>
-    <div class="row">
+    <!-- pulsa reguler axis -->
+    <!-- <div class="row">
       <div class="col-md-12">
         <table class="table table-striped text-center">
           <thead style="background-color: #343a40">
@@ -53,7 +90,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <!-- /.content-wrapper -->

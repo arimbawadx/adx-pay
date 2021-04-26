@@ -123,6 +123,33 @@
   });
   // end delete cs
 
+  // delete customer
+    $('.delete_cus').click(function(){
+    var cus_id=$(this).attr('cus-id');
+    var nama_cus=$(this).attr('nama-cus');
+
+      swal({
+      title: "Yakin hapus "+nama_cus+" ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location="/cs/users/data-customers/delete/"+cus_id;
+        swal("Data terhapus", {
+        icon: "success",
+        });
+      } else {
+        swal({
+          title: "Jangan Ragu!",
+          icon: "warning",
+        });
+      }
+    });
+  });
+  // end delete customer
+
 });
 </script>
 

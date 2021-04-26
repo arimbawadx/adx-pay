@@ -24,7 +24,7 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-      <form action="#" method="post">
+      <form action="/login-check" method="post">
         {{ csrf_field() }}
         <div class="input-group mb-3">
           <input required type="text" class="form-control" name="username" autocomplete="off" placeholder="Username">
@@ -65,5 +65,6 @@
 <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+@include('sweetalert::alert')
 </body>
 </html>
