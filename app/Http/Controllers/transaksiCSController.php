@@ -14,33 +14,8 @@ class transaksiCSController extends Controller
      */
     public function transaksiPulsa1()
     {
-        $url = 'https://portalpulsa.com/api/connect/';
-
-        $header = array(
-        'portal-userid: P46764',
-        'portal-key: 41fcc20cd1e5ca411b197501cb6f0921', // lihat hasil autogenerate di member area
-        'portal-secret: 2adfc91b46723e05053cc76a8a37c43392abe12dd53f2ce3e418f6bd0d78dc55', // lihat hasil autogenerate di member area
-        );
-
-        $dataCekStatus = array(
-        'inquiry' => 'STATUS', // konstan
-        'trxid_api' => '0000', // Trxid atau Reffid dari sisi client saat transaksi pengisian
-        );
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_POSTREDIR, CURL_REDIR_POST_ALL);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataCekStatus);
-        $resultCekStatus = curl_exec($ch);
-
-        $contentCekStatus=utf8_encode($resultCekStatus);
-        $resultCekStatus2=json_decode($contentCekStatus,true);
-
-        return view('cs.pages.transaksiPulsa1');
+        $mutasi = Mutations::all()->sortByDesc('created_at');
+        return view('cs.pages.transaksiPulsa1', compact('mutasi'));
     }
     public function transaksiPulsa2(Request $request)
     {
@@ -105,7 +80,7 @@ class transaksiCSController extends Controller
         $trxid_api = date('Ymd').rand();
 
         $data = array(
-        'inquiry' => $request->inquiry, // konstan
+        'inquiry' => 'I', // konstan
         'code' => $request->code, // kode produk
         'phone' => $request->no_hp, // nohp pembeli
         'trxid_api' => $trxid_api, // Trxid / Reffid dari sisi client
@@ -122,6 +97,42 @@ class transaksiCSController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $result = curl_exec($ch);
 
+        $dataCekStatus = array(
+        'inquiry' => 'STATUS', // konstan
+        'trxid_api' => $trxid_api, // Trxid atau Reffid dari sisi client saat transaksi pengisian
+        );
+
+        $ch1 = curl_init();
+        curl_setopt($ch1, CURLOPT_URL, $url);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch1, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch1, CURLOPT_POSTREDIR, CURL_REDIR_POST_ALL);
+        curl_setopt($ch1, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch1, CURLOPT_POST, 1);
+        curl_setopt($ch1, CURLOPT_POSTFIELDS, $dataCekStatus);
+        $resultCekStatus = curl_exec($ch1);
+
+        $resultCekStatus2=json_decode($resultCekStatus,true);
+
+        $code = $resultCekStatus2['message'][0]['code'];
+        $phone = $resultCekStatus2['message'][0]['phone'];
+        $idcust = $resultCekStatus2['message'][0]['idcust'];
+        $status = $resultCekStatus2['message'][0]['status'];
+        $trxidApi = $resultCekStatus2['message'][0]['trxid_api'];
+        $note = $resultCekStatus2['message'][0]['note'];
+
+        $mutasi = new Mutations;
+        $mutasi -> code = $code;
+        $mutasi -> phone = $phone;
+        if ($idcust==null) {    
+            $mutasi -> idcust = null;
+        }else{
+            $mutasi -> idcust = $idcust;
+        }
+        $mutasi -> status = $status;
+        $mutasi -> trxid_api = $trxidApi;
+        $mutasi -> note = $note;
+        $mutasi -> save();
 
         return redirect('/cs/transaksi/pulsa/1');
     }

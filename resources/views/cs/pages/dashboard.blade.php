@@ -63,34 +63,61 @@
       </div>
       <!-- ./col -->
     </div>
-    <!-- pulsa reguler axis -->
-    <!-- <div class="row">
-      <div class="col-md-12">
-        <table class="table table-striped text-center">
-          <thead style="background-color: #343a40">
-            <tr><th colspan="4" class="text-center">PULSA REGULER AXIS</th></tr>
-            <tr>
-              <th>Kode</th>
-              <th>Produk</th>
-              <th>Harga</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($resultHargaPulsa2['message'] as $hargapulsa)
-            @if($hargapulsa['provider_sub']=="REGULER" && $hargapulsa['provider']=="AXIS")
-            <tr>
-              <td>{{$hargapulsa['code']}}</td>
-              <td>{{$hargapulsa['description']}}</td>
-              <td>{{number_format($hargapulsa['price']+2000)}}</td>
-              <td>{{$hargapulsa['status']}}</td>
-            </tr>
-            @endif
-            @endforeach
-          </tbody>
-        </table>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 bg-dark pt-3 rounded">
+        <h3 class="text-center">Pembayaran Tagihan</h3>
+        <div class="row text-center p-5">
+          <div class="col-md-4 col-4">
+            <a href="" class="text-light"><i class="fa fa-bolt fa-2x"></i><h4>Listrik</h4></a>
+          </div>
+          <div class="col-md-4 col-4">
+            <a href="" class="text-light"><i class="fa fa-tint fa-2x"></i><h4>PDAM</h4></a>
+          </div>
+          <div class="col-md-4 col-4">
+            <a href="" class="text-light"><i class="fa fa-wifi fa-2x"></i><h4>WIFI</h4></a>
+          </div>
+        </div>
       </div>
-    </div> -->
+      <div class="col-md-2"></div>
+    </div>
+    
+    <div class="row mt-3 mb-3">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 bg-dark pt-3 rounded">
+        <h3 class="text-center">Isi Ulang</h3>
+        <div class="row text-center pt-5 pb-5">
+          <div class="col-md-3 col-3">
+            <a href="/cs/transaksi/pulsa/1" class="text-light"><i class="fa fa-bolt fa-2x"></i><h4>Pulsa</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-globe fa-2x"></i><h4>Kuota Internet</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-ticket-alt fa-2x"></i><h4>Voucher</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h4>Gopay</h4></a>
+          </div>
+        </div>
+        <div class="row text-center pt-5 pb-5">
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h4>OVO</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h4>DANA</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h4>LinkAja</h4></a>
+          </div>
+          <div class="col-md-3 col-3">
+            <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h4>ShopeePay</h4></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
   </div>
 </section>
 <!-- /.content-wrapper -->

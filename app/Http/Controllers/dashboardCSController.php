@@ -56,7 +56,7 @@ class dashboardCSController extends Controller
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataHargaPulsa);
         $resultHargaPulsa = curl_exec($ch);
-        return $resultHargaPulsa;
+        // return $resultHargaPulsa;
 
         $contentHargaPulsa=utf8_encode($resultHargaPulsa);
         $resultHargaPulsa2=json_decode($contentHargaPulsa,true);

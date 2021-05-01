@@ -60,7 +60,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <table id="datatables" class="table table-striped text-center">
+        <table id="datatables" class="table table-striped table-responsive text-center">
           <thead style="background-color: #343a40">
             <tr>
               <th>No</th>

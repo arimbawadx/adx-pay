@@ -52,30 +52,7 @@
           </ul>
         </li>
 
-        <li class="nav-item{{ request()->is('cs/transaksi/pulsa/1') ? ' menu-open' : '' }}{{ request()->is('cs/transaksi/kuota-internet') ? ' menu-open' : '' }}">
-
-          <a href="#" class="nav-link{{ request()->is('cs/transaksi/pulsa/1') ? ' active' : '' }}{{ request()->is('cs/transaksi/kuota-internet') ? ' active' : '' }}">
-            <i class="nav-icon fas fa-exchange-alt"></i>
-            <p>
-              Transaksi
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="/cs/transaksi/pulsa/1" class="nav-link{{ request()->is('cs/transaksi/pulsa/1') ? ' active' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Pulsa</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/cs/transaksi/kuota-internet" class="nav-link{{ request()->is('cs/transaksi/kuota-internet') ? ' active' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Kuota Internet</p>
-              </a>
-            </li>
-          </ul>
-        </li>
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
