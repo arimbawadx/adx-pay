@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-12">
         <table id="datatables" class="table table-striped table-responsive text-center">
           <thead style="background-color: #343a40">
             <tr>

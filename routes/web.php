@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardCSController;
+use App\Http\Controllers\dashboardCustomersController;
 use App\Http\Controllers\dataCSCSController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dataCustomerCSController;
@@ -39,3 +40,14 @@ Route::get('/cs/transaksi/pulsa/1', [transaksiCSController::class, 'transaksiPul
 Route::post('/cs/transaksi/pulsa/2', [transaksiCSController::class, 'transaksiPulsa2'])->middleware('SessionCustomerServices');
 Route::post('/cs/transaksi/pulsa/3', [transaksiCSController::class, 'transaksiPulsa3'])->middleware('SessionCustomerServices');
 // =======================end Customer Service===========================
+
+
+
+// =======================Customer===========================
+// dashboard
+Route::get('/customers/dashboard', [dashboardCustomersController::class, 'index'])->middleware('SessionCustomers');
+
+// isi dompet
+Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::class, 'index'])->middleware('SessionCustomers');
+
+// =======================end Customer===========================

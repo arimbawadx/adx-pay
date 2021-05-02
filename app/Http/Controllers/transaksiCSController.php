@@ -122,6 +122,8 @@ class transaksiCSController extends Controller
         $note = $resultCekStatus2['message'][0]['note'];
 
         $mutasi = new Mutations;
+        $mutasi -> username = session()->get('dataLoginCustomerServices')['username'];
+        $mutasi -> jenis_transaksi = 'pulsa';
         $mutasi -> code = $code;
         $mutasi -> phone = $phone;
         if ($idcust==null) {    
