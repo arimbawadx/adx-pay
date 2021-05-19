@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Bulan Mei 2021 pada 12.54
+-- Waktu pembuatan: 19 Bulan Mei 2021 pada 07.51
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -32,6 +32,7 @@ CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `saldo` int(11) DEFAULT NULL,
+  `point` int(11) DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -44,8 +45,10 @@ CREATE TABLE `customers` (
 -- Dumping data untuk tabel `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `saldo`, `username`, `password`, `phone_number`, `email`, `created_at`, `updated_at`) VALUES
-(3, 'Yoga', NULL, 'CUS623294770', '$2y$10$ppWc8V/Ojdk0sWFm3tAl2.OsRyKhQ1mcwURIDAJlcOYXP0rkP9LgW', '085847801933', 'yogade9595.yd@gmail.com', '2021-05-02 07:08:03', '2021-05-02 07:08:03');
+INSERT INTO `customers` (`id`, `name`, `saldo`, `point`, `username`, `password`, `phone_number`, `email`, `created_at`, `updated_at`) VALUES
+(3, 'Yoga', NULL, NULL, 'CUS623294770', '$2y$10$ppWc8V/Ojdk0sWFm3tAl2.OsRyKhQ1mcwURIDAJlcOYXP0rkP9LgW', '085847801933', 'yogade9595.yd@gmail.com', '2021-05-02 07:08:03', '2021-05-02 07:08:03'),
+(4, 'tai', 100, NULL, 'CUS1425107820', '$2y$10$Wi2RCLdNDPbqQklLr5kkweRlJFaA4YT28HvFDHGGEe7k2VpxgcCNi', '085847801933', 'yogade9595.yd@gmail.com', '2021-05-19 02:24:30', '2021-05-19 04:30:35'),
+(5, 'sayang', NULL, NULL, 'CUS1812419947', '$2y$10$B/6DdbxEFiHTTXP1F0kkMemWqN.4GbhYjotCnGP8OlFbBCuGVF1zG', '085847801933', 'yogade9595.yd@gmail.com', '2021-05-19 02:31:21', '2021-05-19 02:31:21');
 
 -- --------------------------------------------------------
 
@@ -104,11 +107,11 @@ CREATE TABLE `mutations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenis_transaksi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idcust` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `trxid_api` bigint(20) NOT NULL,
+  `trxid_api` bigint(20) DEFAULT NULL,
   `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -122,7 +125,8 @@ INSERT INTO `mutations` (`id`, `username`, `jenis_transaksi`, `code`, `phone`, `
 (5, '', '', 'X25', '08174730064', NULL, '2', 202104281034895087, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:50:36', '2021-04-28 06:50:36'),
 (6, '', '', 'X25', '08174730064', NULL, '2', 202104281885899061, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:51:59', '2021-04-28 06:51:59'),
 (7, '', '', 'X25', '08174730064', NULL, '2', 20210428763482698, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:54:38', '2021-04-28 06:54:38'),
-(8, '', '', 'X25', '08174730064', NULL, '2', 20210428707853220, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 14:29:52', '2021-04-28 14:29:52');
+(8, '', '', 'X25', '08174730064', NULL, '2', 20210428707853220, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 14:29:52', '2021-04-28 14:29:52'),
+(14, 'CUS1425107820', 'Tarik Coin', 'TC1000', NULL, NULL, '4', NULL, 'Penarikan Coin sebesar 1000 Coin berhasil', '2021-05-19 04:30:35', '2021-05-19 04:30:35');
 
 --
 -- Indexes for dumped tables
@@ -160,7 +164,7 @@ ALTER TABLE `mutations`
 -- AUTO_INCREMENT untuk tabel `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `customer_services`
@@ -178,7 +182,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `mutations`
 --
 ALTER TABLE `mutations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
