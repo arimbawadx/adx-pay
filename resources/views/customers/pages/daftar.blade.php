@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="{{ asset('lte/dist/img/favicon.ico') }}">
-  <title>adx-pay | Log in</title>
+  <title>adx-pay | Daftar</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,32 +23,25 @@
       <a href="#" class="h1"><b>adx</b> - pay</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Masukan data login yang dikirim via email atau whatsapp</p>
-      <form action="/login-check" method="post">
+      <p class="login-box-msg">Daftar dulu yaaa</p>
+      <form action="/customers/registering" method="post">
         {{ csrf_field() }}
-        <div class="input-group mb-3">
-          <input required type="text" class="form-control" name="username" autocomplete="off" placeholder="Username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
+        <div class="form-group">
+          <input required="" autocomplete="off" type="text" class="form-control" id="nama" name="nama" placeholder="Masukan Nama">
         </div>
-        <div class="input-group mb-3">
-          <input required type="password" class="form-control" name="password" autocomplete="off" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
+        <div class="form-group">
+          <input required="" autocomplete="off" type="number" class="form-control" id="no_hp" name="no_hp" placeholder="Masukan No HP">
+        </div>
+        <div class="form-group">
+          <input required="" autocomplete="off" type="email" class="form-control" id="email" name="email" placeholder="Masukan Email">
         </div>
         <div class="row">
           <div class="col-8">
-            <a href="/customers/daftar">Belum punya akun? Buat Akun</a>
+            <a href="/">Sudah punya akun? Login</a>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Buat Akun</button>
           </div>
           <!-- /.col -->
         </div>

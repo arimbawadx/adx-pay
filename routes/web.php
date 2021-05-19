@@ -44,8 +44,17 @@ Route::post('/cs/transaksi/pulsa/3', [transaksiCSController::class, 'transaksiPu
 
 
 // =======================Customer===========================
+// daftar
+Route::get('/customers/daftar', function(){
+	return view('customers.pages.daftar');
+});
+Route::post('/customers/registering', [loginController::class, 'daftarCustomers']);
+
 // dashboard
 Route::get('/customers/dashboard', [dashboardCustomersController::class, 'index'])->middleware('SessionCustomers');
+
+// tarik-coin
+Route::post('/customers/tarik-coin', [dashboardCustomersController::class, 'tarikCoin'])->middleware('SessionCustomers');
 
 // isi dompet
 Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::class, 'index'])->middleware('SessionCustomers');
