@@ -7,6 +7,8 @@ use App\Http\Controllers\dataCSCSController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dataCustomerCSController;
 use App\Http\Controllers\transaksiCSController;
+use App\Http\Controllers\dataTransaksiCustomersController;
+use App\Http\Controllers\isiDompetCustomersController;
 
 
 // =====================login============================
@@ -56,7 +58,11 @@ Route::get('/customers/dashboard', [dashboardCustomersController::class, 'index'
 // tarik-coin
 Route::post('/customers/tarik-coin', [dashboardCustomersController::class, 'tarikCoin'])->middleware('SessionCustomers');
 
+// data-transaksi
+Route::get('/customers/data-transaksi', [dataTransaksiCustomersController::class, 'index'])->middleware('SessionCustomers');
+
 // isi dompet
 Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::class, 'index'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/isi-dompet/proses', [isiDompetCustomersController::class, 'isiDompet'])->middleware('SessionCustomers');
 
 // =======================end Customer===========================
