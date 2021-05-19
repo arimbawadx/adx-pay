@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Bulan Mei 2021 pada 07.51
+-- Waktu pembuatan: 19 Bulan Mei 2021 pada 10.21
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -107,6 +107,8 @@ CREATE TABLE `mutations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jenis_transaksi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bukti_transfer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jumlah_deposit` int(11) DEFAULT NULL,
   `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idcust` int(11) DEFAULT NULL,
@@ -121,12 +123,13 @@ CREATE TABLE `mutations` (
 -- Dumping data untuk tabel `mutations`
 --
 
-INSERT INTO `mutations` (`id`, `username`, `jenis_transaksi`, `code`, `phone`, `idcust`, `status`, `trxid_api`, `note`, `created_at`, `updated_at`) VALUES
-(5, '', '', 'X25', '08174730064', NULL, '2', 202104281034895087, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:50:36', '2021-04-28 06:50:36'),
-(6, '', '', 'X25', '08174730064', NULL, '2', 202104281885899061, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:51:59', '2021-04-28 06:51:59'),
-(7, '', '', 'X25', '08174730064', NULL, '2', 20210428763482698, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:54:38', '2021-04-28 06:54:38'),
-(8, '', '', 'X25', '08174730064', NULL, '2', 20210428707853220, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 14:29:52', '2021-04-28 14:29:52'),
-(14, 'CUS1425107820', 'Tarik Coin', 'TC1000', NULL, NULL, '4', NULL, 'Penarikan Coin sebesar 1000 Coin berhasil', '2021-05-19 04:30:35', '2021-05-19 04:30:35');
+INSERT INTO `mutations` (`id`, `username`, `jenis_transaksi`, `bukti_transfer`, `jumlah_deposit`, `code`, `phone`, `idcust`, `status`, `trxid_api`, `note`, `created_at`, `updated_at`) VALUES
+(5, '', '', NULL, NULL, 'X25', '08174730064', NULL, '2', 202104281034895087, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:50:36', '2021-04-28 06:50:36'),
+(6, '', '', NULL, NULL, 'X25', '08174730064', NULL, '2', 202104281885899061, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:51:59', '2021-04-28 06:51:59'),
+(7, '', '', NULL, NULL, 'X25', '08174730064', NULL, '2', 20210428763482698, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 06:54:38', '2021-04-28 06:54:38'),
+(8, '', '', NULL, NULL, 'X25', '08174730064', NULL, '2', 20210428707853220, 'X25 08174730064 Sdh pernah, Status: SUKSES. pada @2021-04-28 07:38:28. SN: 21040426006440.', '2021-04-28 14:29:52', '2021-04-28 14:29:52'),
+(14, 'CUS1425107820', 'Tarik Coin', NULL, NULL, 'TC1000', NULL, NULL, '4', NULL, 'Penarikan Coin sebesar 1000 Coin berhasil', '2021-05-19 04:30:35', '2021-05-19 04:30:35'),
+(16, 'CUS1425107820', 'Isi Dompet', NULL, 200000, 'DD200000', NULL, NULL, '1', NULL, 'Silahkan Transfer sebesar Rp. 200000 ke rekening BRI 011-401-021881505 a.n I Made Yoga Arimbawa. Kemudian upload bukti transfer', '2021-05-19 06:51:30', '2021-05-19 06:51:30');
 
 --
 -- Indexes for dumped tables
@@ -182,7 +185,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `mutations`
 --
 ALTER TABLE `mutations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
