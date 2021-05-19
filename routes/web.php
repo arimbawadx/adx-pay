@@ -64,5 +64,7 @@ Route::get('/customers/data-transaksi', [dataTransaksiCustomersController::class
 // isi dompet
 Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::class, 'index'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/isi-dompet/proses', [isiDompetCustomersController::class, 'isiDompet'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/isi-dompet/upload-bukti/{id}', [isiDompetCustomersController::class, 'uploadBuktiTransfer'])->middleware('SessionCustomers');
+
 
 // =======================end Customer===========================

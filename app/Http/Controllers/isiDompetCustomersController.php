@@ -28,4 +28,23 @@ class isiDompetCustomersController extends Controller
     	$transaksi->save();
         return redirect('/customers/transaksi/isi-dompet');
     }
+
+    public function uploadBuktiTransfer(Request $request, $id)
+    {
+    		// menyimpan data file yang diupload ke variabel $file
+			$file = $request->file('bukti_transfer');
+		 
+		    // nama file
+			$namaFile = 'BT'.session()->get('dataLoginCustomers')['username'].date('dmYhis').'.'.$file->getClientOriginalExtension();
+		 
+		    // isi dengan nama folder tempat kemana file diupload
+			$tujuan_upload = 'bukti_transfer';
+			$file->move($tujuan_upload,$namaFile);
+
+			// menyimpan ke db
+			$simpanFIleName = Mutations::where('id', $id)->first();
+			$simpanFIleName->bukti_transfer = $namaFile;
+			$simpanFIleName->save();
+			return redirect('/customers/transaksi/isi-dompet');
+	}
 }
