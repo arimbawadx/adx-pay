@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Customers;
 
 class dashboardCSController extends Controller
 {
@@ -61,8 +62,9 @@ class dashboardCSController extends Controller
         $contentHargaPulsa=utf8_encode($resultHargaPulsa);
         $resultHargaPulsa2=json_decode($contentHargaPulsa,true);
         
-        // return $saldo;
-        return view('cs.pages.dashboard', compact('saldo', 'resultHargaPulsa2'));
+        $TotalsaldoCustomer = Customers::all()->sum('saldo');
+        $AkumulasiSaldoCS = $saldo - $TotalsaldoCustomer;
+        return view('cs.pages.dashboard', compact('saldo', 'resultHargaPulsa2', 'TotalsaldoCustomer', 'AkumulasiSaldoCS'));
     }
 
     /**

@@ -31,7 +31,7 @@
           <!-- small card -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>-</h3>
+              <h3>Rp. {{number_format($TotalsaldoCustomer, 0, '', '.')}}</h3>
 
               <p>Total Saldo Semua Customer</p>
             </div>
@@ -49,7 +49,7 @@
           <!-- small card -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>-</h3>
+              <h3>Rp. {{number_format($AkumulasiSaldoCS, 0, '', '.')}}</h3>
 
               <p>Saldo Customer Services</p>
             </div>

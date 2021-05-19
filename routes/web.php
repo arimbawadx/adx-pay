@@ -9,6 +9,7 @@ use App\Http\Controllers\dataCustomerCSController;
 use App\Http\Controllers\transaksiCSController;
 use App\Http\Controllers\dataTransaksiCustomersController;
 use App\Http\Controllers\isiDompetCustomersController;
+use App\Http\Controllers\isiDompetCSController;
 
 
 // =====================login============================
@@ -41,6 +42,9 @@ Route::get('/cs/users/data-customers/delete/{id}', [dataCustomerCSController::cl
 Route::get('/cs/transaksi/pulsa/1', [transaksiCSController::class, 'transaksiPulsa1'])->middleware('SessionCustomerServices');
 Route::post('/cs/transaksi/pulsa/2', [transaksiCSController::class, 'transaksiPulsa2'])->middleware('SessionCustomerServices');
 Route::post('/cs/transaksi/pulsa/3', [transaksiCSController::class, 'transaksiPulsa3'])->middleware('SessionCustomerServices');
+
+// menunggu konfirmasi
+Route::get('/cs/menunggu-konfirmasi', [isiDompetCSController::class, 'menungguKonfirmasi'])->middleware('SessionCustomerServices');
 // =======================end Customer Service===========================
 
 

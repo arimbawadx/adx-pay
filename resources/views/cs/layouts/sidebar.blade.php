@@ -52,6 +52,12 @@
           </ul>
         </li>
 
+        <li class="nav-item">
+          <a href="/cs/menunggu-konfirmasi" class="nav-link{{ request()->is('cs/menunggu-konfirmasi') ? ' active' : '' }}">
+            <i class="nav-icon fas fa-clock"></i>
+            <p>Menunggu Konfirmasi</p>
+          </a>
+        </li>
         
       </ul>
     </nav>
