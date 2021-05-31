@@ -54,8 +54,8 @@
               @csrf
               <div class="text-warning text-justify">{{$mts -> note}} di sini:</div>
               <div class="custom-file">
-                <input required="" name="bukti_transfer" type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Upload Bukti Transfer</label>
+                <input accept="image/*" required="" name="bukti_transfer" type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Upload Bukti Transfer <span class="text-danger">*berupa gambar saja</span></label>
               </div>
               <button type="submit" class="btn btn-primary mt-2">Confirm</button>
             </form>
@@ -75,13 +75,13 @@
                   <!-- Modal body -->
                   <div class="modal-body">
                     <div class="text-center">  
-                      <img src="{{asset('bukti_transfer/'.$mts->bukti_transfer)}}">
+                      <img width="100%" src="{{asset('bukti_transfer/'.$mts->bukti_transfer)}}">
                     </div>
                     <form action="/customers/transaksi/isi-dompet/upload-bukti/{{$mts->id}}" method="post" enctype="multipart/form-data">
                       @csrf
                       <div class="custom-file mt-3">
-                        <input required="" name="bukti_transfer" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Upload Ulang</label>
+                        <input accept="image/*" required="" name="bukti_transfer" type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload Ulang <span class="text-danger">*berupa gambar saja</span></label>
                       </div>
                   </div>
 

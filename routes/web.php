@@ -44,7 +44,13 @@ Route::post('/cs/transaksi/pulsa/2', [transaksiCSController::class, 'transaksiPu
 Route::post('/cs/transaksi/pulsa/3', [transaksiCSController::class, 'transaksiPulsa3'])->middleware('SessionCustomerServices');
 
 // menunggu konfirmasi
-Route::get('/cs/menunggu-konfirmasi', [isiDompetCSController::class, 'menungguKonfirmasi'])->middleware('SessionCustomerServices');
+Route::get('/cs/transaksi-deposit', [isiDompetCSController::class, 'transaksiDeposit'])->middleware('SessionCustomerServices');
+
+// validTransfer
+Route::get('/cs/isi-dompet/valid/{id}', [isiDompetCSController::class, 'validTransfer'])->middleware('SessionCustomerServices');
+
+// invalid Tranfer
+Route::get('/cs/isi-dompet/invalid/{id}', [isiDompetCSController::class, 'invalidTransfer'])->middleware('SessionCustomerServices');
 // =======================end Customer Service===========================
 
 

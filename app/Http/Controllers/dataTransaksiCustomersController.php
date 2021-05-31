@@ -10,7 +10,7 @@ class dataTransaksiCustomersController extends Controller
     public function index()
     {
     	$username = session()->get('dataLoginCustomers')['username'];
-    	$mutasi = Mutations::where('username', $username)->get();
+    	$mutasi = Mutations::where('username', $username)->get()->sortByDesc('created_at');
     	return view('customers.pages.dataTransaksi', compact('mutasi'));
     }
 }
