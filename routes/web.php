@@ -7,6 +7,7 @@ use App\Http\Controllers\dataCSCSController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dataCustomerCSController;
 use App\Http\Controllers\transaksiCSController;
+use App\Http\Controllers\transaksiCustomerController;
 use App\Http\Controllers\dataTransaksiCustomersController;
 use App\Http\Controllers\isiDompetCustomersController;
 use App\Http\Controllers\isiDompetCSController;
@@ -57,10 +58,10 @@ Route::get('/cs/isi-dompet/invalid/{id}', [isiDompetCSController::class, 'invali
 
 // =======================Customer===========================
 // daftar
-Route::get('/customers/daftar', function(){
-	return view('customers.pages.daftar');
-});
-Route::post('/customers/registering', [loginController::class, 'daftarCustomers']);
+// Route::get('/customers/daftar', function(){
+// 	return view('customers.pages.daftar');
+// });
+// Route::post('/customers/registering', [loginController::class, 'daftarCustomers']);
 
 // dashboard
 Route::get('/customers/dashboard', [dashboardCustomersController::class, 'index'])->middleware('SessionCustomers');
@@ -75,6 +76,11 @@ Route::get('/customers/data-transaksi', [dataTransaksiCustomersController::class
 Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::class, 'index'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/isi-dompet/proses', [isiDompetCustomersController::class, 'isiDompet'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/isi-dompet/upload-bukti/{id}', [isiDompetCustomersController::class, 'uploadBuktiTransfer'])->middleware('SessionCustomers');
+
+// transaksi
+Route::get('/customers/transaksi/pulsa/1', [transaksiCustomerController::class, 'transaksiPulsa1'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/pulsa/2', [transaksiCustomerController::class, 'transaksiPulsa2'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/pulsa/3', [transaksiCustomerController::class, 'transaksiPulsa3'])->middleware('SessionCustomers');
 
 
 // =======================end Customer===========================

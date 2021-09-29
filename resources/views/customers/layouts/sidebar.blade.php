@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <span class="brand-link">
-    <span class="brand-text font-weight-light">adxpay - Dompet Digital</span>
+    <span class="brand-text font-weight-light">adxpay - Digital Payment</span>
   </span>
 
   <!-- Sidebar -->
@@ -12,13 +12,14 @@
         <img src="{{ asset('lte/dist/img/noprofil.jpg') }}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        @if(session()->get('dataLoginCustomers')['saldo'] <= 100000)
-          <span class="d-block">{{session()->get('dataLoginCustomers')['name']}}</span> <div class="text-danger">Member Miskin</div>
+        <span class="d-block">{{session()->get('dataLoginCustomers')['name']}}</span>
+        <!-- @if(session()->get('dataLoginCustomers')['saldo'] <= 100000)
+        <div class="text-danger">Member Miskin</div>
         @elseif(session()->get('dataLoginCustomers')['saldo'] <= 999000)
-          <span class="d-block">{{session()->get('dataLoginCustomers')['name']}}</span> <div class="text-warning">Member Sederhana</div>
+        <div class="text-warning">Member Sederhana</div>
         @elseif(session()->get('dataLoginCustomers')['saldo'] > 99925000)
-          <span class="d-block">{{session()->get('dataLoginCustomers')['name']}}</span> <div class="text-primary">Member Sultan</div>
-        @endif
+        <div class="text-primary">Member Sultan</div>
+        @endif -->
       </div>
     </div>
 

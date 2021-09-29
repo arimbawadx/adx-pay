@@ -9,7 +9,7 @@
 <section class="content">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 p-2">
         <form method="post" action="/customers/transaksi/isi-dompet/proses">
           {{csrf_field()}}
           <div class="input-group">
@@ -20,7 +20,7 @@
           </div>     
         </form>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 p-2">
         <div class="card">
           <div class="card-body p-2">
             <p class="text-center m-0"><strong>Transaksi</strong></p>
@@ -83,10 +83,10 @@
                         <input accept="image/*" required="" name="bukti_transfer" type="file" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Upload Ulang <span class="text-danger">*berupa gambar saja</span></label>
                       </div>
-                  </div>
+                    </div>
 
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
                       <button type="submit" class="btn btn-primary">Confirm</button>
                     </form>
                   </div>
@@ -94,7 +94,7 @@
                 </div>
               </div>
             </div>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
             @endif
             @elseif($mts->status == 4) 
             <div class="text-success text-justify">{{$mts -> note}}</div>
@@ -109,4 +109,3 @@
 <!-- /.content-wrapper -->
 @endsection
 
- 

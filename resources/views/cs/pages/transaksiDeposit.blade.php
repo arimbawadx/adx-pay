@@ -31,7 +31,7 @@
             <div class="text-primary text-justify">{{$mts -> note}}</div>
             @elseif($mts->status == 1)
             @if($mts->bukti_transfer == null) 
-              <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
+            <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
             @else
             <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}} silahkan segera divalidasi</div>
             <!-- The Modal -->
@@ -54,9 +54,9 @@
                 </div>
               </div>
             </div>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
-              <a href="/cs/isi-dompet/valid/{{$mts->id}}" class="btn btn-success">Valid</a>
-              <a href="/cs/isi-dompet/invalid/{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
+            <a id="valid-bt" mutasi-id="{{$mts->id}}" class="btn btn-success">Valid</a>
+            <a id="invalid-bt" mutasi-id="{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
             @endif
             @elseif($mts->status == 4) 
             <div class="text-success text-justify">{{$mts -> note}}</div>
@@ -89,7 +89,7 @@
             <div class="text-primary text-justify">{{$mts -> note}}</div>
             @elseif($mts->status == 1)
             @if($mts->bukti_transfer == null) 
-              <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
+            <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
             @else
             <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}} silahkan segera divalidasi</div>
             <!-- The Modal -->
@@ -112,9 +112,9 @@
                 </div>
               </div>
             </div>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
-              <a href="/cs/isi-dompet/valid/{{$mts->id}}" class="btn btn-success">Valid</a>
-              <a href="/cs/isi-dompet/invalid/{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
+            <a href="/cs/isi-dompet/valid/{{$mts->id}}" class="btn btn-success">Valid</a>
+            <a href="/cs/isi-dompet/invalid/{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
             @endif
             @elseif($mts->status == 4) 
             <div class="text-success text-justify">{{$mts -> note}}</div>
@@ -147,7 +147,7 @@
             <div class="text-primary text-justify">{{$mts -> note}}</div>
             @elseif($mts->status == 1)
             @if($mts->bukti_transfer == null) 
-              <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
+            <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}}</div>
             @else
             <div class="text-warning text-justify">{{$mts -> username}} ingin menambah dompet sebesar Rp. {{number_format($mts -> jumlah_deposit)}} silahkan segera divalidasi</div>
             <!-- The Modal -->
@@ -170,9 +170,9 @@
                 </div>
               </div>
             </div>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
-              <a href="/cs/isi-dompet/valid/{{$mts->id}}" class="btn btn-success">Valid</a>
-              <a href="/cs/isi-dompet/invalid/{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#bukti_transfer">Lihat Bukti transfer</button>
+            <a href="/cs/isi-dompet/valid/{{$mts->id}}" class="btn btn-success">Valid</a>
+            <a href="/cs/isi-dompet/invalid/{{$mts->id}}" class="btn btn-danger">Tidak Valid</a>
             @endif
             @elseif($mts->status == 4) 
             <div class="text-success text-justify">{{$mts -> note}}</div>
@@ -188,4 +188,3 @@
 <!-- /.content-wrapper -->
 @endsection
 
- 

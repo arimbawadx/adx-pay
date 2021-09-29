@@ -5,17 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mutations;
 
-class transaksiCSController extends Controller
+
+class transaksiCustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function transaksiPulsa1()
     {
-        $mutasi = Mutations::all()->sortByDesc('created_at');
-        return view('cs.pages.transaksiPulsa1', compact('mutasi'));
+        $username = session()->get('dataLoginCustomers')['username'];
+        $mutasi = Mutations::where('username', $username)->get()->sortByDesc('created_at');
+        return view('customers.pages.transaksiPulsa1', compact('mutasi'));
     }
     public function transaksiPulsa2(Request $request)
     {
@@ -63,7 +60,7 @@ class transaksiCSController extends Controller
         $phone = $request->no_hp;
 
 
-        return view('cs.pages.transaksiPulsa2', compact('inquiry', 'resultHargaPulsa2', 'phone'));
+        return view('customers.pages.transaksiPulsa2', compact('inquiry', 'resultHargaPulsa2', 'phone'));
     }
 
     public function transaksiPulsa3(Request $request)
@@ -120,9 +117,10 @@ class transaksiCSController extends Controller
         $status = $resultCekStatus2['message'][0]['status'];
         $trxidApi = $resultCekStatus2['message'][0]['trxid_api'];
         $note = $resultCekStatus2['message'][0]['note'];
+        // return $resultCekStatus2;
 
         $mutasi = new Mutations;
-        $mutasi -> username = session()->get('dataLoginCustomerServices')['username'];
+        $mutasi -> username = session()->get('dataLoginCustomers')['username'];
         $mutasi -> jenis_transaksi = 'pulsa';
         $mutasi -> code = $code;
         $mutasi -> phone = $phone;
@@ -133,9 +131,15 @@ class transaksiCSController extends Controller
         }
         $mutasi -> status = $status;
         $mutasi -> trxid_api = $trxidApi;
-        $mutasi -> note = $note;
+        if ($status == 2) {
+            $mutasi -> note = "Transaksi gagal, Silahkan hubungi admin untuk cek kendala, WA : 085847801933";
+        }elseif ($status == 4) {
+            $mutasi -> note = "Transaksi berhasil, Terimakasih atas transaksi nya 😊 ";
+        }else{
+            $mutasi -> note = "Transaksi GHOIB, silahkan tunggu";
+        }
         $mutasi -> save();
 
-        return redirect('/cs/transaksi/pulsa/1');
+        return redirect('/customers/transaksi/pulsa/1');
     }
 }

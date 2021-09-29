@@ -1,4 +1,4 @@
-@extends('cs/layouts/main')
+@extends('customers/layouts/main')
 
 @section('title','adx-pay | Transaksi Pulsa')
 
@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form method="post" action="/cs/transaksi/pulsa/2">
+        <form method="post" action="/customers/transaksi/pulsa/2">
           {{csrf_field()}}
           <div class="input-group">
             <input id="no_tujuan" required="" autocomplete="off" type="number" class="form-control" name="no_hp" placeholder="Masukan Nomor Tujuan">
@@ -34,17 +34,25 @@
 
             @if($mts->status == 2) 
             <span class="float-right text-danger text-uppercase"><strong>gagal</strong></span>
-            @elseif($mts->status == 3) 
-            <span class="float-right text-primary text-uppercase"><strong>refund</strong></span>
-            @elseif($mts->status == 1) 
-            <span class="float-right text-warning text-uppercase"><strong>pending</strong></span>
-            @elseif($mts->status == 4) 
-            <span class="float-right text-success text-uppercase"><strong>sukses</strong></span>
-            @endif
-
             <br><div>{{$mts -> phone}}</div>
             <div>({{$mts -> code}})</div>
             <div class="text-danger text-justify">{{$mts -> note}}</div>
+            @elseif($mts->status == 3) 
+            <span class="float-right text-primary text-uppercase"><strong>refund</strong></span>
+            <br><div>{{$mts -> phone}}</div>
+            <div>({{$mts -> code}})</div>
+            <div class="text-primary text-justify">{{$mts -> note}}</div>
+            @elseif($mts->status == 1) 
+            <span class="float-right text-warning text-uppercase"><strong>pending</strong></span>
+            <br><div>{{$mts -> phone}}</div>
+            <div>({{$mts -> code}})</div>
+            <div class="text-warning text-justify">{{$mts -> note}}</div>
+            @elseif($mts->status == 4) 
+            <span class="float-right text-success text-uppercase"><strong>sukses</strong></span>
+            <br><div>{{$mts -> phone}}</div>
+            <div>({{$mts -> code}})</div>
+            <div class="text-success text-justify">{{$mts -> note}}</div>
+            @endif
           </div>
         </div>
         @endforeach
@@ -55,4 +63,3 @@
 <!-- /.content-wrapper -->
 @endsection
 
- 
