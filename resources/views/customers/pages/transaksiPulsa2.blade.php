@@ -9,14 +9,14 @@
 <section class="content">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <form id="form-confirm" method="post" action="/customers/transaksi/pulsa/3">
+      <div class="col-md-6 col-12">
+        <form class="card card-body" id="form-confirm" method="post" action="/customers/transaksi/pulsa/3">
           {{csrf_field()}}
-          <div class="input-group">
-            <input name="inquiry" value="{{$inquiry}}" type="hidden">
-            <input name="no_hp" value="{{$phone}}" type="hidden">
-
-            <select name="code" required class="custom-select">
+          <input name="inquiry" value="{{$inquiry}}" type="hidden">
+          <input name="no_hp" value="{{$phone}}" type="hidden">
+          <div class="form-group">
+            <label for="code">Jumlah Pulsa</label>
+            <select id="code" name="code" required class="form-control">
               <option value="">Pilih</option>
               @foreach($resultHargaPulsa2['message'] as $hargapulsa)
               @if($hargapulsa['provider_sub']=="REGULER" && $hargapulsa['operator_sub']==$inquiry)
@@ -64,10 +64,16 @@
               @endif
               @endforeach
             </select>
-            <div class="input-group-append">
-              <button id="btn-trx-confirm" class="btn btn-primary" type="button">Kirim</button>
-            </div>
           </div>
+          <div class="form-group">
+            <label for="metode_pembayaran">Metode Pembayaran</label>
+            <select id="metode_pembayaran" name="metode_pembayaran" required class="form-control">
+              <option value="">Pilih</option>
+              <option value="Hutang">Bayar Nanti</option>
+              <option value="Dompet">Dompet | Saldo Anda Rp. {{number_format($saldoCustomers['saldo'], 0, '', '.')}}</option>
+            </select>
+          </div>
+          <button id="btn-trx-confirm" class="btn btn-primary btn-block" type="button">Kirim</button>
         </form>
       </div>
     </div>

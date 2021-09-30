@@ -9,8 +9,8 @@
 <section class="content">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <form method="post" action="/customers/transaksi/pulsa/2">
+      <div class="col-md-6 col-12">
+        <form class="card card-body" method="post" action="/customers/transaksi/pulsa/2">
           {{csrf_field()}}
           <div class="input-group">
             <input id="no_tujuan" required="" autocomplete="off" type="number" class="form-control" name="no_hp" placeholder="Masukan Nomor Tujuan">
@@ -20,8 +20,8 @@
           </div>     
         </form>
       </div>
-      <div class="col-md-6">
-        <div class="card mt-5">
+      <div class="col-md-6 col-12">
+        <div class="card">
           <div class="card-body p-2">
             <p class="text-center m-0"><strong>Riwayat Transaksi</strong></p>
           </div>

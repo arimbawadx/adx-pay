@@ -114,12 +114,30 @@ $('#btn-trx-confirm').click(function(){
     confirmButtonText: 'Yakin'
   }).then((result) => {
     if (result.isConfirmed) {
-      document.getElementById("form-confirm").submit();
-      Swal.fire(
-        'Diproses',
-        'Transaksi diproses',
-        'success'
-        )
+      let selectJumlahPulsa = document.forms["form-confirm"]["code"].value;
+      let selectMetodePembayaran = document.forms["form-confirm"]["metode_pembayaran"].value;
+      if (selectJumlahPulsa == "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Jumlah Pulsa Kosong',
+          text: 'Silahkan pilih jumlah pulsa yang dibeli'
+        })
+        return false;
+      }else if(selectMetodePembayaran == ""){
+        Swal.fire({
+          icon: 'error',
+          title: 'Metode Pembayaran Kosong',
+          text: 'Silahkan pilih metode pembayaran yang digunakan'
+        })
+        return false;
+      }else{  
+        document.getElementById("form-confirm").submit();
+        Swal.fire(
+          'Diproses',
+          'Transaksi diproses',
+          'success'
+          )
+      }
     }
   })
 });

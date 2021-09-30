@@ -85,7 +85,7 @@
     </div> -->
     <!-- end pembayaran tagihan -->
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="row mt-3 mb-3 justify-content-center">
         <div class="col-md-8 bg-dark pt-3 rounded">
           <h3 class="text-center">Belanja</h3>
@@ -119,7 +119,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <!-- /.content-wrapper -->
