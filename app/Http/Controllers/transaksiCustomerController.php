@@ -38,9 +38,9 @@ class transaksiCustomerController extends Controller
         $url = 'https://portalpulsa.com/api/connect/';
 
         $header = array(
-            'portal-userid: P188648',
-        'portal-key: 11b52208f4b343faab6d8500d2af5a83', // lihat hasil autogenerate di member area
-        'portal-secret: fb49f43727e794793ad5004f0a94ffe129057df99eed9018f7bcb3d71c8f65ed', // lihat hasil autogenerate di member area
+            'portal-userid: P189391',
+        'portal-key: ac9fd1d69abb2558d7e2f000ef150f3e', // lihat hasil autogenerate di member area
+        'portal-secret: 951a5aeda4503a5fffdf3b962d105f401aabc6ecc0ce46ce316900b3964ece9e', // lihat hasil autogenerate di member area
     );
 
         $dataHargaPulsa = array(
@@ -75,10 +75,10 @@ class transaksiCustomerController extends Controller
             $url = 'https://portalpulsa.com/api/connect/';
 
             $header = array(
-                'portal-userid: P188648',
-                'portal-key: 11b52208f4b343faab6d8500d2af5a83', // lihat hasil autogenerate di member area
-                'portal-secret: fb49f43727e794793ad5004f0a94ffe129057df99eed9018f7bcb3d71c8f65ed', // lihat hasil autogenerate di member area
-            );
+                'portal-userid: P189391',
+        'portal-key: ac9fd1d69abb2558d7e2f000ef150f3e', // lihat hasil autogenerate di member area
+        'portal-secret: 951a5aeda4503a5fffdf3b962d105f401aabc6ecc0ce46ce316900b3964ece9e', // lihat hasil autogenerate di member area
+    );
 
             // membuat trxid_api
             $trxid_api = date('Ymd').rand();
@@ -251,10 +251,10 @@ class transaksiCustomerController extends Controller
                 $url = 'https://portalpulsa.com/api/connect/';
 
                 $header = array(
-                    'portal-userid: P188648',
-                'portal-key: 11b52208f4b343faab6d8500d2af5a83', // lihat hasil autogenerate di member area
-                'portal-secret: fb49f43727e794793ad5004f0a94ffe129057df99eed9018f7bcb3d71c8f65ed', // lihat hasil autogenerate di member area
-            );
+                    'portal-userid: P189391',
+        'portal-key: ac9fd1d69abb2558d7e2f000ef150f3e', // lihat hasil autogenerate di member area
+        'portal-secret: 951a5aeda4503a5fffdf3b962d105f401aabc6ecc0ce46ce316900b3964ece9e', // lihat hasil autogenerate di member area
+    );
 
             // membuat trxid_api
                 $trxid_api = date('Ymd').rand();
