@@ -77,10 +77,20 @@ Route::get('/customers/transaksi/isi-dompet', [isiDompetCustomersController::cla
 Route::post('/customers/transaksi/isi-dompet/proses', [isiDompetCustomersController::class, 'isiDompet'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/isi-dompet/upload-bukti/{id}', [isiDompetCustomersController::class, 'uploadBuktiTransfer'])->middleware('SessionCustomers');
 
-// transaksi
+// transaksi pulsa
 Route::get('/customers/transaksi/pulsa/1', [transaksiCustomerController::class, 'transaksiPulsa1'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/pulsa/2', [transaksiCustomerController::class, 'transaksiPulsa2'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/pulsa/3', [transaksiCustomerController::class, 'transaksiPulsa3'])->middleware('SessionCustomers');
 
+// transaksi dana
+Route::get('/customers/transaksi/dana/1', [transaksiCustomerController::class, 'transaksiDana1'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/dana/2', [transaksiCustomerController::class, 'transaksiDana2'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/dana/3', [transaksiCustomerController::class, 'transaksiDana3'])->middleware('SessionCustomers');
+
+
+// transaksi OVO
+Route::get('/customers/transaksi/ovo/1', [transaksiCustomerController::class, 'transaksiOVO1'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/ovo/2', [transaksiCustomerController::class, 'transaksiOVO2'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/ovo/3', [transaksiCustomerController::class, 'transaksiOVO3'])->middleware('SessionCustomers');
 
 // =======================end Customer===========================

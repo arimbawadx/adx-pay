@@ -126,10 +126,10 @@
           </div>
           <div class="row text-center pt-4 pb-4">
             <div class="col-md-3 col-3">
-              <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h6>OVO</h6></a>
+              <a href="/customers/transaksi/ovo/1" class="text-light"><i class="fa fa-wallet fa-2x"></i><h6>OVO</h6></a>
             </div>
             <div class="col-md-3 col-3">
-              <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h6>DANA</h6></a>
+              <a href="/customers/transaksi/dana/1" class="text-light"><i class="fa fa-wallet fa-2x"></i><h6>DANA</h6></a>
             </div>
             <div class="col-md-3 col-3">
               <a href="" class="text-light"><i class="fa fa-wallet fa-2x"></i><h6>LinkAja</h6></a>
