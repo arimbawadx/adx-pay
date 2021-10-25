@@ -82,6 +82,11 @@ Route::get('/customers/transaksi/pulsa/1', [transaksiCustomerController::class, 
 Route::post('/customers/transaksi/pulsa/2', [transaksiCustomerController::class, 'transaksiPulsa2'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/pulsa/3', [transaksiCustomerController::class, 'transaksiPulsa3'])->middleware('SessionCustomers');
 
+// transaksi kuota
+Route::get('/customers/transaksi/kuota/1', [transaksiCustomerController::class, 'transaksiKuota1'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/kuota/2', [transaksiCustomerController::class, 'transaksiKuota2'])->middleware('SessionCustomers');
+Route::post('/customers/transaksi/kuota/3', [transaksiCustomerController::class, 'transaksiKuota3'])->middleware('SessionCustomers');
+
 // transaksi dana
 Route::get('/customers/transaksi/dana/1', [transaksiCustomerController::class, 'transaksiDana1'])->middleware('SessionCustomers');
 Route::post('/customers/transaksi/dana/2', [transaksiCustomerController::class, 'transaksiDana2'])->middleware('SessionCustomers');

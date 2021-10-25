@@ -115,7 +115,7 @@
               <a href="/customers/transaksi/pulsa/1" class="text-light"><i class="fa fa-mobile fa-2x"></i><h6>Pulsa</h6></a>
             </div>
             <div class="col-md-3 col-3">
-              <a href="" class="text-light"><i class="fa fa-globe fa-2x"></i><h6>Kuota Internet</h6></a>
+              <a href="/customers/transaksi/kuota/1" class="text-light"><i class="fa fa-globe fa-2x"></i><h6>Kuota Internet</h6></a>
             </div>
             <div class="col-md-3 col-3">
               <a href="" class="text-light"><i class="fa fa-ticket-alt fa-2x"></i><h6>Voucher</h6></a>
